@@ -27,6 +27,7 @@ a {
   body {
     color: ${theme.strongCream};
     background: black;
+    text-align: center;
   }
 }
 `;

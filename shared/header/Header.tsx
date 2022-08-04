@@ -1,12 +1,16 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
+import { logo } from '../icons';
+import { ToasterContainer } from '../toaster/Toaster';
 import { HeaderContainer, LogoWrapper, Navtab } from './style';
 
 const Header = () => {
     return (
         <HeaderContainer>
+            {/* <Image src={logo} alt='logo' } /> */}
             <LogoWrapper>
-               <Link href='/'>Be You</Link> 
+                <Link href='/'> Be You</Link>
             </LogoWrapper>
 
             <Navtab>
@@ -14,20 +18,23 @@ const Header = () => {
             </Navtab>
 
             <Navtab>
-                WishList
+                <Link href='/wishList'> WishList </Link>
             </Navtab>
 
             <Navtab>
-                About Us
+                <Link href='/aboutUs'>About Us</Link>
             </Navtab>
 
             <Navtab>
-                Contact Us
+                <Link href='/contactUs'> Contact Us </Link>
             </Navtab>
 
             <Navtab>
-                Profile
+                <Link href='/profile'> Profile </Link>
             </Navtab>
+
+            <ToasterContainer />
+            
         </HeaderContainer>
     )
 }
