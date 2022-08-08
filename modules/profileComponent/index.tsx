@@ -2,9 +2,8 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
-import { ProfileContainer } from './style'
 import { ErrorToast, SucccessToast } from '../../shared/toaster/ToastMessages';
-import { Card, Heading, Input, InputContainer, PrimaryButton, SubHeading } from '../../styles/style';
+import { Card, Container, Heading, Input, InputContainer, PrimaryButton, SubHeading } from '../../styles/style';
 const ProfileComponent = () => {
     const [newUser, setNewUser] = useState<boolean>(false)
     const [firstName, setFirstName] = useState<string>('')
@@ -107,7 +106,7 @@ const ProfileComponent = () => {
     }, [bearerToken])
 
     return (
-        <ProfileContainer>
+        <Container>
             <Heading> Be You - Event Planners </Heading>
             {userDetails ? <Card>
                 <SubHeading> Hi {userDetails.firstName + " " + userDetails.lastName}. We glad to have you on our platform. </SubHeading>
@@ -164,7 +163,7 @@ const ProfileComponent = () => {
                         <SubHeading cursor="pointer" onClick={() => setNewUser(true)}> Sign up to explore ... !! </SubHeading>
                     </Card>
             }
-        </ProfileContainer>
+        </Container>
     )
 }
 

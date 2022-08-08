@@ -9,6 +9,7 @@ body {
   line-height: 1.5;
   letter-spacing: 1px;
   font-family: sans-serif;
+  caret-color: transparent;
 }
 
 a {
