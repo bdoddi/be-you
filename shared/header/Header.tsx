@@ -28,7 +28,7 @@ const Header = () => {
             <Navtab>
                 <Link href='/contactUs'> Contact Us </Link>
             </Navtab>
-
+            
             <Navtab>
                 <Link href='/profile'> Profile </Link>
             </Navtab>

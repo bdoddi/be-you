@@ -1,7 +1,8 @@
 import { useRouter } from 'next/router';
-import React, { useState } from 'react'
-import { ErrorToast, SucccessToast } from '../../shared/toaster/ToastMessages';
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 
+import { ErrorToast, SucccessToast } from '../../shared/toaster/ToastMessages';
 import { Card, Heading, Input, InputContainer, PrimaryButton, SubHeading } from '../../styles/style'
 import { ProfileContainer } from './style'
 
@@ -12,6 +13,10 @@ const Profile = () => {
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
     const [confirmPassword, setConfirmPassword] = useState<string>('')
+    const [userDetails, setUserDetails] = useState<any>(null)
+    const [bearerToken, setBearerToken] = useState<string>('')
+
+    const baseURL = 'http://localhost:8000/'
 
     const router = useRouter()
 
@@ -23,32 +28,98 @@ const Profile = () => {
         setConfirmPassword('')
     }
 
-    const signUpHandler = () => {
-        if(!firstName || !lastName || !email || !password || !confirmPassword) {
+    const signUpHandler = async () => {
+        if (!firstName || !lastName || !email || !password || !confirmPassword) {
             ErrorToast("Please enter every field !")
-        } else if(password !== confirmPassword) {
+        } else if (password !== confirmPassword) {
             ErrorToast("OOPS! Password Mismatch.")
         } else {
-            SucccessToast("Congratulations! Your account is Ready...!! ")
-            setNewUser(true)
-            resetValues()
+            await axios.post(baseURL + 'signup',
+                {
+                    firstName: firstName,
+                    lastName: lastName,
+                    emailOrPhone: email,
+                    password: password,
+                }
+            ).then((res: any) => {
+                console.log("res", res)
+                if (res && res.data.success) {
+                    SucccessToast(res.data.success)
+                    setNewUser(true)
+                    resetValues()
+                } else {
+                    ErrorToast(res.data.error)
+                }
+            })
         }
     }
 
-    const loginHandler = () => {
-        if(!email || !password) {
-            ErrorToast("Please enter every field !")
-        } else {
-            SucccessToast("Congratulations! Your've Logged In...!! ")
-            router.push('/')
+    const loginHandler = async () => {
+        try {
+
+            if (!email || !password) {
+                ErrorToast("Please enter every field !")
+            } else {
+                const response = await axios.post(baseURL + 'login',
+                    {
+                        emailOrPhone: email,
+                        password: password,
+                    }
+                ).then(async (res: any) => {
+                    console.log("res", res)
+                    if (res && res.data.success) {
+                        // await getUserDetails(res.data.bearer_Token)
+                        setBearerToken(res.data.bearer_Token)
+                        SucccessToast(res.data.success)
+                      
+                    } else {
+                        ErrorToast(res.data.error)
+                    }
+                })
+                console.log("response", response)
+            }
+
+        } catch (error) {
+            console.log("error from login", error)
         }
     }
+
+    const getUserDetails = async (token: any) => {
+        console.log("bearerToken", token)
+        try {
+            if (token) {
+                await axios.get(baseURL + 'userDetails').then((res: any) => {
+                    console.log("res for user", res.data, )
+                    if (res.data.error) {
+                        ErrorToast(res.data.error)
+                    } else {
+                        setUserDetails(res.data)
+                        // router.push('/')
+                    }
+                })
+            }
+        } catch (error) {
+            console.log("error userDetails", error)
+        }
+    }
+
+    useEffect(() => {
+        getUserDetails(bearerToken)
+    }, [bearerToken])
 
     return (
         <ProfileContainer>
             <Heading> Be You - Event Planners </Heading>
-            {
-                !newUser ? <Card>
+            {userDetails ? <Card>
+                <SubHeading> Hi {userDetails.firstName + " " + userDetails.lastName}. We glad to have you on our platform. </SubHeading>
+
+                <SubHeading onClick={() => router.push('/')}> Click the below button to explore our application </SubHeading>
+
+                <PrimaryButton onClick={loginHandler}>
+                    Click Here
+                </PrimaryButton>
+            </Card> :
+                newUser ? <Card>
                     <SubHeading> Create a new account to explore </SubHeading>
                     <InputContainer>
                         <Input placeholder='First Name' value={firstName}
@@ -75,7 +146,7 @@ const Profile = () => {
                         Signup
                     </PrimaryButton>
 
-                    <SubHeading cursor="pointer"> Already have an account ?</SubHeading>
+                    <SubHeading cursor="pointer" onClick={() => setNewUser(false)}> Already have an account ?</SubHeading>
                 </Card> :
                     <Card>
                         <SubHeading> Login to experience additional features ... !! </SubHeading>
@@ -91,7 +162,7 @@ const Profile = () => {
                         <PrimaryButton onClick={loginHandler}>
                             Login
                         </PrimaryButton>
-                        <SubHeading cursor="pointer"> Sign up to explore ... !! </SubHeading>
+                        <SubHeading cursor="pointer" onClick={() => setNewUser(true)}> Sign up to explore ... !! </SubHeading>
                     </Card>
             }
         </ProfileContainer>
