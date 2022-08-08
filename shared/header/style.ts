@@ -28,14 +28,15 @@ export const HeaderContainer = styled.div`
 `;
 
 export const MobileHeaderContainer = styled.div<any>`
-  align-items: center;
-  padding: 30px ;
-  position: relative;
+  align-items: right;
+  padding: 30px;
+  position: sticky;
   top: -20px;
-  left: 60%;
+  left: 1400px;
+  height: 100%;
+  width: 100%;
   z-index: 10000;
   background: ${theme.cream};
-  height: 100%;
   color: ${theme.navyBlue};
   text-align: center;
   box-shadow: 2px 2px 4px 4px ${theme.skyBlue};
