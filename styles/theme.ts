@@ -12,5 +12,6 @@ export const theme = {
     navyBlue: '#0A1172',
     strongSkyBlue: '#0492c2',
     skyBlue: '#63C5DA',
-    blue:'#0070f3'
+    blue:'#0070f3',
+    green: "#83f28f"
 }
