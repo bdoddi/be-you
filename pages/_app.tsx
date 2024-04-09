@@ -14,6 +14,7 @@ import {
   Text,
   withAuthenticator,
 } from "@aws-amplify/ui-react";
+import type { WithAuthenticatorProps } from '@aws-amplify/ui-react';
 import { listNotes } from "../src/graphql/queries.js";
 import {
   createNote as createNoteMutation,
@@ -21,10 +22,10 @@ import {
 } from "../src/graphql/mutations.js";
 import { Amplify, API, Storage } from "aws-amplify";
 
-// import awsmobile from "../awsComponents/aws-exports.js";
-// Amplify.configure(awsmobile);
+import awsmobile from "../awsComponents/aws-exports.js";
+Amplify.configure(awsmobile);
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps, {signOut, user}: WithAuthenticatorProps) {
   const [notes, setNotes] = useState([]);
 
   useEffect(() => {
@@ -121,4 +122,5 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default withAuthenticator(MyApp);
+// export default withAuthenticator(MyApp);
+export default MyApp;
