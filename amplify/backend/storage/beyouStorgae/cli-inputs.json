@@ -1,0 +1,14 @@
+{
+  "resourceName": "beyouStorgae",
+  "policyUUID": "648a7a11",
+  "bucketName": "beyou8d650853917b4ecbb4404c5288ae2ddc",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}

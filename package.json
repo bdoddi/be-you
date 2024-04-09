@@ -9,9 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@aws-amplify/ui-react": "^6.1.6",
+    "@aws-amplify/ui-react": "5.0.0",
+    "@smithy/util-hex-encoding": "^2.2.0",
     "@types/styled-components": "^5.1.25",
-    "aws-amplify": "^6.0.27",
+    "aws-amplify": "^5",
     "axios": "^0.27.2",
     "next": "12.2.3",
     "react": "18.2.0",
