@@ -24,8 +24,8 @@ import {
 } from "../src/graphql/mutations.js";
 import { Amplify, API, Storage } from "aws-amplify";
 
-import awsconfig from "../awsComponents/aws-exports.js";
-Amplify.configure(awsconfig);
+// import awsconfig from "../awsComponents/aws-exports.js";
+// Amplify.configure(awsconfig);
 
 
 function MyApp({ Component, pageProps }: AppProps) {
