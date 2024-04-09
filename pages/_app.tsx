@@ -80,40 +80,41 @@ function MyApp({ Component, pageProps }: AppProps) {
       variables: { input: { id } },
     });
   }
+//   {notes.map((note: any) => (
+//     //@ts-ignore
+//     <Flex
+//       key={note?.id || note?.name}
+//       direction="row"
+//       justifyContent="center"
+//       alignItems="center"
+//     >
+//       <Text as="strong" fontWeight={700}>
+//         {/* //@ts-ignore */}
+//         {note?.name}
+//       </Text>
+//       {/* //@ts-ignore */}
+//       <Text as="span">{note.description}</Text>
+//       {note.image && (
+//         <>
+//           {/* <Image
+// src={note.image}
+// alt={`visual aid for ${notes.name}`}
+// style={{ width: 400 }}
+// /> */}
+//         </>
+//       )}
+//       <Button variation="link" onClick={() => deleteNote(note)}>
+//         Delete note
+//       </Button>
+//     </Flex>
+//   ))}
 
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Layout>
         <ErrorBoundary>
-          {notes.map((note: any) => (
-            //@ts-ignore
-            <Flex
-              key={note?.id || note?.name}
-              direction="row"
-              justifyContent="center"
-              alignItems="center"
-            >
-              <Text as="strong" fontWeight={700}>
-                {/* //@ts-ignore */}
-                {note?.name}
-              </Text>
-              {/* //@ts-ignore */}
-              <Text as="span">{note.description}</Text>
-              {note.image && (
-                <>
-                  {/* <Image
-        src={note.image}
-        alt={`visual aid for ${notes.name}`}
-        style={{ width: 400 }}
-      /> */}
-                </>
-              )}
-              <Button variation="link" onClick={() => deleteNote(note)}>
-                Delete note
-              </Button>
-            </Flex>
-          ))}
+         
           <Component {...pageProps} />
         </ErrorBoundary>
       </Layout>
