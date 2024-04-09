@@ -8,7 +8,6 @@ import ErrorBoundary from "../shared/errorBoundary/ErrorBoundary";
 
 import React, { useState, useEffect } from "react";
 import "@aws-amplify/ui-react/styles.css";
-import amplifyconfig from "../awsComponents/amplifyconfiguration.json";
 import {
   Button,
   Flex,
@@ -28,7 +27,6 @@ import { Amplify, API, Storage } from "aws-amplify";
 import awsconfig from "../awsComponents/aws-exports.js";
 Amplify.configure(awsconfig);
 
-Amplify.configure(amplifyconfig);
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [notes, setNotes] = useState([]);
