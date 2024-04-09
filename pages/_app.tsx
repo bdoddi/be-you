@@ -22,10 +22,10 @@ import {
 } from "../src/graphql/mutations.js";
 import { Amplify, API, Storage } from "aws-amplify";
 
-import awsmobile from "../awsComponents/aws-exports.js";
-Amplify.configure(awsmobile);
+// import awsmobile from "../awsComponents/aws-exports.js";
+// Amplify.configure(awsmobile);
 
-function MyApp({ Component, pageProps }: AppProps, {signOut, user}: WithAuthenticatorProps) {
+function MyApp({ Component, pageProps }: AppProps) {
   const [notes, setNotes] = useState([]);
 
   useEffect(() => {
@@ -113,8 +113,7 @@ function MyApp({ Component, pageProps }: AppProps, {signOut, user}: WithAuthenti
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Layout>
-        <ErrorBoundary>
-         
+        <ErrorBoundary>       
           <Component {...pageProps} />
         </ErrorBoundary>
       </Layout>
@@ -122,5 +121,5 @@ function MyApp({ Component, pageProps }: AppProps, {signOut, user}: WithAuthenti
   );
 }
 
-// export default withAuthenticator(MyApp);
-export default MyApp;
+export default withAuthenticator(MyApp);
+// export default MyApp;
