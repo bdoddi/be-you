@@ -5,7 +5,7 @@ const nextConfig = {
   env: {
     API_BASE_URL: 'http://localhost:8080/'
   },
-  pageExtensions: ['mdx', 'md', 'jsx', 'js', 'tsx', 'ts'],
+  pageExtensions: ['page.tsx', 'page.ts', 'page.jsx', 'page.js'],
 }
 
 module.exports = nextConfig
