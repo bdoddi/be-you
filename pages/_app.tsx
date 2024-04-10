@@ -23,8 +23,8 @@ import {
 import { Amplify } from 'aws-amplify';
 import { generateClient } from 'aws-amplify/api';
 //@ts-ignore
-import config from '../awsComponents/aws-exports';
-Amplify.configure(config);
+import Awsconfig from '../awsComponents/aws-exports';
+Amplify.configure(Awsconfig);
 
 const API = generateClient();
 
