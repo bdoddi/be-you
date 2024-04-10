@@ -30,7 +30,6 @@ const API = generateClient();
 
 
 function MyApp({ Component, pageProps }: AppProps, { signOut, user }: WithAuthenticatorProps) {
-  // console.log("user", user)
   const [notes, setNotes] = useState([]);
 
   useEffect(() => {
