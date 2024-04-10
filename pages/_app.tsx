@@ -22,8 +22,9 @@ import {
 } from "../src/graphql/mutations.js";
 import { Amplify } from 'aws-amplify';
 import { generateClient } from 'aws-amplify/api';
-// import config from '../awsComponents/aws-exports';
-// Amplify.configure(config);
+//@ts-ignore
+import config from '../awsComponents/aws-exports';
+Amplify.configure(config);
 
 const API = generateClient();
 
