@@ -1,47 +1,22 @@
 {
   "staging": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-amplifydbb5a92bfdf94-staging-ada7c-authRole",
-      "UnauthRoleArn": "arn:aws:iam::471112917938:role/amplify-amplifydbb5a92bfdf94-staging-ada7c-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::471112917938:role/amplify-amplifydbb5a92bfdf94-staging-ada7c-authRole",
+      "AuthRoleName": "amplify-amplifydd1be35ba86e4-staging-c5ce9-authRole",
+      "UnauthRoleArn": "arn:aws:iam::471112917938:role/amplify-amplifydd1be35ba86e4-staging-c5ce9-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::471112917938:role/amplify-amplifydd1be35ba86e4-staging-c5ce9-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-amplifydbb5a92bfdf94-staging-ada7c-deployment",
-      "UnauthRoleName": "amplify-amplifydbb5a92bfdf94-staging-ada7c-unauthRole",
-      "StackName": "amplify-amplifydbb5a92bfdf94-staging-ada7c",
-      "StackId": "arn:aws:cloudformation:us-east-1:471112917938:stack/amplify-amplifydbb5a92bfdf94-staging-ada7c/58bc6580-f637-11ee-94d2-12ed06a172e9",
-      "AmplifyAppId": "d25bs2otsbcr6t"
+      "DeploymentBucketName": "amplify-amplifydd1be35ba86e4-staging-c5ce9-deployment",
+      "UnauthRoleName": "amplify-amplifydd1be35ba86e4-staging-c5ce9-unauthRole",
+      "StackName": "amplify-amplifydd1be35ba86e4-staging-c5ce9",
+      "StackId": "arn:aws:cloudformation:us-east-1:471112917938:stack/amplify-amplifydd1be35ba86e4-staging-c5ce9/4c4d3e70-f702-11ee-9ca8-1281409002df",
+      "AmplifyAppId": "d1xky5gdpnumzd"
     },
     "categories": {
       "auth": {
-        "beyou2074f3a4": {},
-        "beyou": {}
-      },
-      "storage": {
-        "beyouStorgae": {}
-      }
-    }
-  },
-  "main": {
-    "awscloudformation": {
-      "AuthRoleName": "amplify-beyou-main-4a8ba-authRole",
-      "UnauthRoleArn": "arn:aws:iam::471112917938:role/amplify-beyou-main-4a8ba-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::471112917938:role/amplify-beyou-main-4a8ba-authRole",
-      "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-beyou-main-4a8ba-deployment",
-      "UnauthRoleName": "amplify-beyou-main-4a8ba-unauthRole",
-      "StackName": "amplify-beyou-main-4a8ba",
-      "StackId": "arn:aws:cloudformation:us-east-1:471112917938:stack/amplify-beyou-main-4a8ba/5f15fa20-f562-11ee-9980-1230a91841ad",
-      "AmplifyAppId": "d25bs2otsbcr6t"
-    },
-    "categories": {
-      "auth": {
-        "beyou2074f3a4": {}
+        "beyou44729e97": {}
       },
       "api": {
         "beyou": {}
-      },
-      "storage": {
-        "beyouStorgae": {}
       }
     }
   }
