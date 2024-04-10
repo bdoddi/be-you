@@ -20,12 +20,16 @@ import {
   createNote as createNoteMutation,
   deleteNote as deleteNoteMutation,
 } from "../src/graphql/mutations.js";
-import { Amplify, API, Storage } from "aws-amplify";
+import { Amplify } from 'aws-amplify';
+import { generateClient } from 'aws-amplify/api';
+import config from '../awsComponents/aws-exports';
+Amplify.configure(config);
 
-// import awsmobile from "../awsComponents/aws-exports.js";
-// Amplify.configure(awsmobile);
+const API = generateClient();
 
-function MyApp({ Component, pageProps }: AppProps) {
+
+function MyApp({ Component, pageProps }: AppProps, { signOut, user }: WithAuthenticatorProps) {
+  console.log("user", user)
   const [notes, setNotes] = useState([]);
 
   useEffect(() => {
