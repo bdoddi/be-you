@@ -23,7 +23,7 @@ import {
 import { Amplify } from 'aws-amplify';
 import { generateClient } from 'aws-amplify/api';
 //@ts-ignore
-import Awsconfig from '../awsComponents/aws-exports';
+import Awsconfig from '../src/aws-exports';
 
 Amplify.configure(Awsconfig);
 

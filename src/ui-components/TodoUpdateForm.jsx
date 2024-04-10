@@ -9,8 +9,8 @@ import * as React from "react";
 import { Button, Flex, Grid, TextField } from "@aws-amplify/ui-react";
 import { fetchByPath, getOverrideProps, validateField } from "./utils";
 import { generateClient } from "aws-amplify/api";
-import { getTodo } from "../../src/graphql/queries";
-import { updateTodo } from "../../src/graphql/mutations";
+import { getTodo } from "../graphql/queries";
+import { updateTodo } from "../graphql/mutations";
 const client = generateClient();
 export default function TodoUpdateForm(props) {
   const {
