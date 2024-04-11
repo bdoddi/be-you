@@ -21,6 +21,15 @@ a {
   box-sizing: border-box;
 }
 
+html {
+  color-scheme: dark;
+}
+body {
+  color: ${theme.strongCream};
+  background: black;
+  text-align: center;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
